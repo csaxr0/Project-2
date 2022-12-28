@@ -1,19 +1,30 @@
 -- Create tables for raw data to be loaded into
-CREATE TABLE customer_name (
+
+CREATE TABLE film_data (
 id INT PRIMARY KEY,
-first_name TEXT,
-last_name TEXT
+Title TEXT,
+Domestic_Sales Money
+International_Sales Money
+Total_Sales Money
 );
 
-CREATE TABLE customer_location (
-id INT PRIMARY KEY,
-address TEXT,
-us_state TEXT
+
+CREATE TABLE actor_data (
+index INT PRIMARY KEY,
+imdbID TEXT,
+imdbVotes TEXT,
+Director character varying,
+Actors character varying
 );
 
 
 -- Joins tables
-SELECT customer_name.id, customer_name.first_name, customer_name.last_name, customer_location.address, customer_location.us_state
-FROM customer_name
-JOIN customer_location
-ON customer_name.id = customer_location.id;
+select actor_data.id,
+	actor_data.imdbID,
+	actor_data.imdbVotes,
+	actor_data.Director,
+	actor_data.Actors
+from actor_data  
+join film_data 
+on actor_data.id = film_data.id;
+
