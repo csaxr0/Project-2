@@ -1,2 +1,2 @@
 # OMD API Key
-api_key = "e48c8908"
+api_key = "Put Key Here"
